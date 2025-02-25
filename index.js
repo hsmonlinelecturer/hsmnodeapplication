@@ -6,23 +6,42 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-  res.json({ data: 'data' });
-});
-app.get('/html', (req, res) => {
   res.sendFile(path.join(__dirname) + '/views/index.html');
 });
 
 app.get('/data', (req, res, next) => {
-  const data = {
-    Name: 'Jureli',
-    Roll: 15,
-    subject: ['CC', 'SPM'],
-    Firstterm: {
-      CC: 56,
-      SPM: 55,
-      remark: 'Pass',
+  const data = [
+    {
+      date: '2018-05-06',
+      temperatureC: 1,
+      summary: 'Freezing',
+      temperatureF: 33,
     },
-  };
+    {
+      date: '2018-05-07',
+      temperatureC: 14,
+      summary: 'Bracing',
+      temperatureF: 57,
+    },
+    {
+      date: '2018-05-08',
+      temperatureC: -13,
+      summary: 'Freezing',
+      temperatureF: 9,
+    },
+    {
+      date: '2018-05-09',
+      temperatureC: -16,
+      summary: 'Balmy',
+      temperatureF: 4,
+    },
+    {
+      date: '2018-05-10',
+      temperatureC: -2,
+      summary: 'Chilly',
+      temperatureF: 29,
+    },
+  ];
   res.json(data);
 });
 
